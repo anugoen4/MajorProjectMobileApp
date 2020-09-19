@@ -1,0 +1,12 @@
+{
+  "name": "frontendMobileApp",
+  "displayName": "frontendMobileApp",
+  "expo": {
+    "name": "frontendMobileApp",
+    "slug": "frontendMobileApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
