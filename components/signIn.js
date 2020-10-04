@@ -11,6 +11,8 @@ import * as Animatable from 'react-native-animatable'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Feather from 'react-native-vector-icons/Feather'
 import { AsyncStorage } from 'react-native';
+import {AuthContext} from './context'
+
 
 const SignIn = ({navigation}) => {
 
@@ -21,7 +23,7 @@ const SignIn = ({navigation}) => {
         secureTextEntry: true
     })
 
-    // const {signIn} = React.useContext(AuthContext);
+    const {signIn} = React.useContext(AuthContext);
 
     const textInputChange = (val) =>{
         if(val.length > 0){
@@ -54,19 +56,19 @@ const SignIn = ({navigation}) => {
         })
     }
 
-    const loginHandle = async (email, password) => {
-        // signIn(username, password)
-        console.log(email, password)
-        const obj = {
-            "email" : email,
-            "password": password
-        }
-        console.log(obj)
-        try {
-            await AsyncStorage.setItem('login_detail', JSON.stringify(obj))
-          } catch (e) {
-            console.log("saving error")
-          }
+    const loginHandle = (email, password) => {
+        signIn(email, password)
+        // console.log(email, password)
+        // const obj = {
+        //     "email" : email,
+        //     "password": password
+        // }
+        // console.log(obj)
+        // try {
+        //     await AsyncStorage.setItem('login_detail', JSON.stringify(obj))
+        //   } catch (e) {
+        //     console.log("saving error")
+        //   }
     }
 
     return (

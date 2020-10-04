@@ -16,10 +16,11 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon_2 from 'react-native-vector-icons/MaterialIcons';
 import { color } from 'react-native-reanimated';
 import {AsyncStorage} from 'react-native';
-
+import {AuthContext} from './context'
 
 export function DrawerContent(props){
     const [name, setName] = useState('Anurag Goenka')
+    const {signOut} = React.useContext(AuthContext)
 
     return(
         <View style = {{flex : 1}}>
@@ -128,7 +129,7 @@ export function DrawerContent(props){
                         />
                     )}
                     label = 'Sign Out'
-                    onPress = {() => alert("Signing Out")}
+                    onPress = {() => signOut()}
                 />
             </Drawer.Section>
         </View>
